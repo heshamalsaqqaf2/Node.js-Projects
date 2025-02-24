@@ -1,4 +1,4 @@
-# JavaScript Basics Projects
+# JavaScript Fundamentals Projects in Node.js
 
 <div align="center">
   <a href="https://nodejs.org/">
