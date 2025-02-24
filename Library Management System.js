@@ -1,20 +1,19 @@
 'use strict';
+
 /** 
- * Variables
- * Conditionals
- * Loops
- * Functions
- * Objects
- * Arrays
- * -----------------------------------------
- * 2. Basic features:
- * 1. Add a book
- * 2. Delete a book
- * 3. Borrow a book
- * 4. Return a book
- * 5. View All Books
- * 6. Search for a book
- * 7. Library Statistics
+ * @name: Library Management System.
+ * @author: Hesham Alsaqqaf
+ * @version lms.0.0.1
+ * 
+ * @property
+ *   Basic features:
+ *      1. Add a book
+ *      2. Delete a book
+ *      3. Borrow a book
+ *      4. Return a book
+ *      5. View All Books
+ *      6. Search for a book
+ *      7. Library Statistics
 */
 
 // TODO: Create interface input,output data
