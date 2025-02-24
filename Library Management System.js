@@ -150,7 +150,7 @@ function borrowBook() {
         if (!book) {
             console.log(`❌ Error!, No Book With This ID.`);
         } else if (book.isBorrowed) {
-            console.log(`ℹ️ Sorry! This Book Wasn't Borrowed.`);
+            console.log(`✋ Sorry! This Book Wasn't Borrowed.`);
         } else {
             book.isBorrowed = true;
             console.log(`✅ Book "${book.title}" Borrowed Successfully!`);
@@ -168,10 +168,10 @@ function returnBook() {
         if (!book) {
             console.log("❌ Error! No book with this ID.");
         } else if (!book.isBorrowed) {
-            console.log("ℹ️ This book wasn't borrowed.");
+            console.log("✋ This book wasn't borrowed.");
         } else {
             book.isBorrowed = false;
-            console.log(`✔️ Book "${book.title}" Returned Successfully!`);
+            console.log(`✅ Book "${book.title}" Returned Successfully!`);
         }
         console.log("---------------------------------------------------");
         showMenu();
