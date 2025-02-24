@@ -39,7 +39,6 @@ function showMenu() {
     console.log(`8. Exit System`);
     console.log("=====================================");
 
-
     rl.question("Choose Numbers: 1 To 8: ", (choice) => {
         switch (choice) {
             case '1': addBook();
