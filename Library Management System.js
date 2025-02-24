@@ -58,14 +58,13 @@ function showMenu() {
             case '7': libraryStatistics();
                 break;
             case '8': rl.close();
-                console.log(`🖐️  Good Bay My Dir!`);
+                console.log(`🖐️  Goodbye, We Are Happy For You.`);
                 console.log("=====================================");
                 break;
             default:
-                console.log(`❌ Errors Not Found Choose Number!`);
+                console.log(`❌ An Error Occurred Where You Entered A Number That Is Not In The List!`);
                 console.log("=====================================");
                 showMenu();
-                break;
         }
     });
 }
@@ -83,7 +82,6 @@ function addBook() {
                     year: convertNumbers,
                     isBorrowed: false,
                 };
-                console.log("---------------------------------------------------");
                 books.push(createBook);
                 // console.log("Array Books:", books);
                 console.log(`✅ Book Added successfully Title: "📙 ${createBook.title} 📙"`);
@@ -96,10 +94,11 @@ function addBook() {
 
 // View All Books From Library
 function viewAllBook() {
+    console.log("------------------------------------------------------------------------------------------------------------");
     books.forEach(book => {
-        console.log(`ID: ${book.id} | Title: ${book.title} | Author: ${book.author} | Year: ${book.year} | Status: ${book.isBorrowed ? "Borrowed ❌" : "Allow ✅"}`);
+        console.log(`ID: ${book.id} | Title: ${book.title} | Author: ${book.author} | Publication Date: ${book.year} | Status This Book: ${book.isBorrowed ? "Not Allowed Borrowed ❌" : " Allowed For Borrowing ✅"}`);
     });
-    console.log("---------------------------------------------------");
+    console.log("------------------------------------------------------------------------------------------------------------");
     showMenu();
 }
 
@@ -112,11 +111,10 @@ function deleteBooks() {
         if (index !== -1) {
             books.splice(index, 1);
             console.log(`✅ Book deleted successfully ID [${idBook}], Index [${index}]`);
-            console.log("---------------------------------------------------");
         } else {
             console.log(`❌ Book number does not exist or is incorrect ID ${idBook}, Index ${index}`);
-            console.log("---------------------------------------------------");
         }
+        console.log("---------------------------------------------------");
         showMenu();
     });
 }
@@ -134,18 +132,51 @@ function searchBooks() {
                 countBooks++;
                 console.log(`✅ Book Title: "${book.title}", Book Author: "${book.author}"`);
             });
-            console.log(`Result Numbers All Books In Library = ${countBooks} Books`);
-            console.log("---------------------------------------------------");
+            console.log(`Number of books from search results = [ ${countBooks} ] Books`);
         } else {
             console.log(`❌ Sorry! Not Found Result The ${keyword} Keyword`);
-            console.log("---------------------------------------------------");
         }
+        console.log("---------------------------------------------------");
         showMenu();
     });
 }
 
+// Borrow Books From Library 
+function borrowBook() {
+    rl.question("Enter Book Id: ", (id) => {
+        const book = books.find(function (book) {
+            return book.id === parseInt(id);
+        });
+        if (!book) {
+            console.log(`❌ Error!, No Book With This ID.`);
+        } else if (book.isBorrowed) {
+            console.log(`ℹ️ Sorry! This Book Wasn't Borrowed.`);
+        } else {
+            book.isBorrowed = true;
+            console.log(`✅ Book "${book.title}" Borrowed Successfully!`);
+        }
+        console.log("---------------------------------------------------");
+        showMenu();
+    });
+}
 
+// Return Books From Library 
+function returnBook() {
+    rl.question("Enter Book Id: ", (id) => {
+        const book = books.find(book => book.id === parseInt(id));
 
+        if (!book) {
+            console.log("❌ Error! No book with this ID.");
+        } else if (!book.isBorrowed) {
+            console.log("ℹ️ This book wasn't borrowed.");
+        } else {
+            book.isBorrowed = false;
+            console.log(`✔️ Book "${book.title}" Returned Successfully!`);
+        }
+        console.log("---------------------------------------------------");
+        showMenu();
+    });
+}
 
 // TODO: Start System Library
 showMenu();
