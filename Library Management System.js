@@ -176,5 +176,15 @@ function returnBook() {
     });
 }
 
+// Library Statistics
+function libraryStatistics() {
+    const totalBooks = books.length;
+    const borrowedBooks = books.filter((book) => book.isBorrowed).length;
+
+    console.log(`Total Book = ${totalBooks}\nBorrow Book = ${borrowedBooks}\nAvailable Book = ${totalBooks - borrowedBooks}`);
+    console.log("---------------------------------------------------");
+    showMenu();
+}
+
 // TODO: Start System Library
 showMenu();
