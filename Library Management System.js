@@ -16,7 +16,7 @@
  *      7. Library Statistics
 */
 
-// TODO: Create interface input,output data
+// TODO: Create interface input,output terminal
 const readline = require('readline');
 const rl = readline.createInterface({
     input: process.stdin,
