@@ -121,7 +121,7 @@ function deleteBooks() {
 
 // Search Books From Library
 function searchBooks() {
-    rl.question("Enter Keyword [Title/Author]: ", (keyword) => {
+    rl.question("Enter A Keyword For The Book Title OR Author: ", (keyword) => {
         const resultSearch = books.filter(function (book) {
             return book.title.toLowerCase().includes(keyword.toLowerCase()) ||
                 book.author.toLowerCase().includes(keyword.toLowerCase());
@@ -143,7 +143,7 @@ function searchBooks() {
 
 // Borrow Books From Library 
 function borrowBook() {
-    rl.question("Enter Book Id: ", (id) => {
+    rl.question("Enter The Book Number: ", (id) => {
         const book = books.find(function (book) {
             return book.id === parseInt(id);
         });
@@ -162,7 +162,7 @@ function borrowBook() {
 
 // Return Books From Library 
 function returnBook() {
-    rl.question("Enter Book Id: ", (id) => {
+    rl.question("Enter The Book Number: ", (id) => {
         const book = books.find(book => book.id === parseInt(id));
 
         if (!book) {
